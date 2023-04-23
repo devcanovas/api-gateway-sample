@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: 'api-gateway'
+# CLOCAR ESSAS CONFIGURAÇÕES ABAIXO NO SERVER-CONFIG
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+eureka:
+  instance:
+   instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+#  DESCOMENTAR PARA COLOAR URL DO SERVICE-REGISTRY
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka
